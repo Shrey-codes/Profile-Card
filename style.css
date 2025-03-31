@@ -1,0 +1,111 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ec87e2;
+}
+
+/* Card Styles */
+.card {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Image Styles */
+.profile-img img {
+    width: 100%;
+    height: auto;
+    border-bottom: 3px solid #f0f0f0;
+    border-radius: 50%;
+}
+
+/* Card Content */
+.card-content {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.designation {
+    font-size: 16px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.bio {
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-icon {
+    /* font-size: 20px; */
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #0077b5; /* LinkedIn Blue */
+}
+
+.github{
+    width: 30px;
+    height: 30px;
+}
+.linkedin{
+    width: 30px;
+    height: 30px;
+}
+.instagram{
+    width: 30px;
+    height: 30px;
+}
+/* Responsive Design */
+@media (max-width: 480px) {
+    .card {
+        width: 260px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .bio {
+        font-size: 12px;
+    }
+
+    .social-icon {
+        font-size: 18px;
+    }
+}
