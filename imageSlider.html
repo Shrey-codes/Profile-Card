@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        /* Container for the slider */
+        .slider-container {
+            width: 100%;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        /* The image will take the full width of the container */
+        .slider-images {
+            display: flex;
+            width: 500px;
+            height: 500px;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-images img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Style for the buttons */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slider-images" id="slider-images">
+        <!-- Images will be added here dynamically -->
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<script>
+// Array of image URLs
+const images = [
+    'image1.png','white.jpg','image2.png','white.jpg','image3.png','white.jpg','image4.jpg','white.jpg','image5.png','white.jpg','image6.jpg','white.jpg','image7.jpeg','white.jpg','image8.png'
+];
+
+let currentIndex = 0;
+
+// Function to display the images in the slider
+function displayImages() {
+    const sliderImages = document.getElementById('slider-images');
+    sliderImages.innerHTML = ''; // Clear any previous images
+
+    // Create image elements dynamically from the array
+    images.forEach((src, index) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `Image ${index + 1}`;
+        sliderImages.appendChild(img);
+    });
+    
+    // Set the initial slide position
+    moveSlide(0);
+}
+
+// Function to move to the next or previous slide
+function moveSlide(step) {
+    const sliderImages = document.getElementById('slider-images');
+    const totalImages = images.length;
+
+    // Update current index
+    currentIndex = (currentIndex + step + totalImages) % totalImages;
+
+    // Move the images container to the correct position
+    sliderImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Initialize the slider by displaying images
+displayImages();
+</script>
+
+</body>
+</html>
